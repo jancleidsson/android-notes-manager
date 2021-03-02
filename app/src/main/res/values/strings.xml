@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">NotesManager</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="button_to_create_edit_notes">Button to create and edit notes</string>
 </resources>
