@@ -3,4 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="button_to_create_edit_notes">Button to create and edit notes</string>
+    <string name="title">Title</string>
+    <string name="content">Content</string>
+    <string name="saveNote">Button to save notes changes</string>
 </resources>
