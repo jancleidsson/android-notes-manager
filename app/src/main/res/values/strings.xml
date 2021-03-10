@@ -6,4 +6,6 @@
     <string name="title">Title</string>
     <string name="content">Content</string>
     <string name="saveNote">Button to save notes changes</string>
+    <string name="last_updated">Last updated</string>
+    <string name="last_updated_date_format">MMM dd, HH::mm::ss</string>
 </resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="note_item_title_style">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="note_item_text_style">
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="note_item_detail_style">
+        <item name="android:textSize">10sp</item>
+    </style>
+</resources>
