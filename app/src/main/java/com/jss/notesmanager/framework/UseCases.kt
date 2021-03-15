@@ -7,6 +7,6 @@ import com.jss.core.usecase.RemoveNote
 
 data class UseCases(
         val addNote: AddNote,
-        val getAllNotes: GetNote,
-        val getNote: GetAllNotes,
+        val getAllNotes: GetAllNotes,
+        val getNote: GetNote,
         val removeNote: RemoveNote)

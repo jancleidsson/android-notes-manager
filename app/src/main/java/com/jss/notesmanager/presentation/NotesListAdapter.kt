@@ -10,7 +10,7 @@ import com.jss.notesmanager.databinding.NoteItemBinding
 import java.text.SimpleDateFormat
 import java.util.*
 
-class NotesListAdapter(private val notes: ArrayList<Note>) : RecyclerView.Adapter<NotesListAdapter.NoteViewHolder>() {
+class NotesListAdapter(private val notes: ArrayList<Note>, private val action: ListAction) : RecyclerView.Adapter<NotesListAdapter.NoteViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = NoteViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.note_item, parent, false))
@@ -23,7 +23,7 @@ class NotesListAdapter(private val notes: ArrayList<Note>) : RecyclerView.Adapte
 
     fun updateNotes(newNotes: List<Note>) {
         notes.clear()
-        notes.addAll(notes)
+        notes.addAll(newNotes)
         notifyDataSetChanged()
     }
 
@@ -37,6 +37,9 @@ class NotesListAdapter(private val notes: ArrayList<Note>) : RecyclerView.Adapte
             binding.noteItemLastUpdated.text = "${context.getString(R.string.last_updated)} ${lastUpdateFormat.format(lastUpdateDate)}"
             binding.noteItemTitle.text = note.title
             binding.noteItemContent.text = note.content
+            binding.noteItem.setOnClickListener {
+                action.onClick(note.id)
+            }
         }
     }
 }

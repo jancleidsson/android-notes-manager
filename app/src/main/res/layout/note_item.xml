@@ -12,7 +12,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/standard_margin">
+        android:padding="@dimen/note_item_margin">
 
         <TextView
             android:id="@+id/note_item_title"

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="standard_margin">30dp</dimen>
+    <dimen name="note_item_margin">5dp</dimen>
     <dimen name="note_item_radius">5dp</dimen>
     <dimen name="note_item_elevation">2dp</dimen>
     <dimen name="note_item_height">100dp</dimen>
