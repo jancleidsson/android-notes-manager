@@ -16,7 +16,7 @@ import androidx.navigation.fragment.navArgs
 import com.jss.core.data.Note
 import com.jss.notesmanager.R
 import com.jss.notesmanager.databinding.FragmentNoteBinding
-import com.jss.notesmanager.framework.NoteViewModel
+import com.jss.notesmanager.framework.vm.NoteViewModel
 
 /**
  * Represents note fragment view
@@ -47,8 +47,10 @@ class NoteFragment : Fragment() {
             } else Navigation.findNavController(it).popBackStack()
         }
 
-        args?.let { noteId = args.noteId }
-        if(noteId != 0L) { viewModel.getNote(noteId) }
+        if(args.noteId != 0L) {
+            noteId = args.noteId
+            viewModel.getNote(noteId)
+        }
     }
 
     override fun onDestroy() {

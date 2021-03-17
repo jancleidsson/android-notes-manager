@@ -11,10 +11,7 @@ import androidx.navigation.NavDirections
 import com.jss.notesmanager.databinding.FragmentNotesListBinding
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.jss.notesmanager.R
-import com.jss.notesmanager.framework.NoteViewModel
-import com.jss.notesmanager.framework.NotesListViewModel
+import com.jss.notesmanager.framework.vm.NotesListViewModel
 
 /**
  * Represents notes list fragment view

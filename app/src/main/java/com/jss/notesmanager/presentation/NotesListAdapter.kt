@@ -37,9 +37,8 @@ class NotesListAdapter(private val notes: ArrayList<Note>, private val action: L
             binding.noteItemLastUpdated.text = "${context.getString(R.string.last_updated)} ${lastUpdateFormat.format(lastUpdateDate)}"
             binding.noteItemTitle.text = note.title
             binding.noteItemContent.text = note.content
-            binding.noteItem.setOnClickListener {
-                action.onClick(note.id)
-            }
+            binding.noteItemWordCount.text = "${context.getString(R.string.words)} ${note.wordCount}"
+            binding.noteItem.setOnClickListener { action.onClick(note.id) }
         }
     }
 }
