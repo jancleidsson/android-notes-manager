@@ -8,4 +8,8 @@
     <string name="saveNote">Button to save notes changes</string>
     <string name="last_updated">Last updated</string>
     <string name="last_updated_date_format">MMM dd, HH::mm::ss</string>
+    <string name="delete_note">Delete Note</string>
+    <string name="want_to_delete_note">Are you sure you want to delete this note?</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
 </resources>

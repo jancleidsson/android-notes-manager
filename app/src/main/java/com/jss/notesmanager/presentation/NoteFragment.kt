@@ -1,10 +1,10 @@
 package com.jss.notesmanager.presentation
 
+import android.app.AlertDialog
 import android.content.Context.INPUT_METHOD_SERVICE
+import android.content.DialogInterface
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 import com.jss.core.data.Note
+import com.jss.notesmanager.R
 import com.jss.notesmanager.databinding.FragmentNoteBinding
 import com.jss.notesmanager.framework.NoteViewModel
 
@@ -23,11 +24,11 @@ import com.jss.notesmanager.framework.NoteViewModel
 class NoteFragment : Fragment() {
 
     private val args: NoteFragmentArgs by navArgs()
+    private var noteId = 0L
     private var _binding: FragmentNoteBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: NoteViewModel
     private var currentNote = Note("", "", 0L, 0L)
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -46,12 +47,39 @@ class NoteFragment : Fragment() {
             } else Navigation.findNavController(it).popBackStack()
         }
 
-        if(args.noteId != 0L) viewModel.getNote(currentNote.id)
+        args?.let { noteId = args.noteId }
+        if(noteId != 0L) { viewModel.getNote(noteId) }
     }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.note_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.delete_note -> {
+                if (context != null && noteId != 0L) {
+                    AlertDialog.Builder(context!!)
+                            .setTitle(getString(R.string.delete_note))
+                            .setMessage(getString(R.string.want_to_delete_note))
+                            .setPositiveButton(getString(R.string.yes)) { _: DialogInterface?, _: Int -> viewModel.deleteNote(currentNote) }
+                            .setNegativeButton(getString(R.string.cancel)) { _: DialogInterface?, _: Int ->  }
+                            .show()
+                }
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun updateCurrentNote() {
